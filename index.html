@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CTR Lend — Isolated Lending Markets</title>
+<title>CTR Finance — Isolated Lending Markets</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#060b18;--card:#0c1222;--input:#0a1020;--bdr:#1a2744;--bdr-a:#64ffda33;--acc:#64ffda;--acc-d:#64ffda22;--acc-g:#64ffda44;--t1:#e2e8f0;--t2:#8892a8;--t3:#4a5568;--red:#ff6b6b;--grn:#64ffda;--org:#ffb347;--org-d:#ffb34722}
+:root{--bg:#060b18;--card:#0c1222;--input:#0a1020;--bdr:#1a2744;--bdr-a:#64ffda33;--acc:#64ffda;--acc-d:#64ffda22;--acc-g:#64ffda44;--t1:#e2e8f0;--t2:#8892a8;--t3:#4a5568;--red:#ff6b6b;--red-d:#ff6b6b22;--grn:#64ffda;--org:#ffb347;--org-d:#ffb34722}
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:var(--bg);color:var(--t1);font-family:'Inter',sans-serif;min-height:100vh}
 body::before{content:'';position:fixed;top:-200px;left:50%;transform:translateX(-50%);width:900px;height:500px;background:radial-gradient(ellipse,#64ffda08 0%,transparent 70%);pointer-events:none;z-index:0}
@@ -20,27 +20,22 @@ body::before{content:'';position:fixed;top:-200px;left:50%;transform:translateX(
 .nav a{padding:8px 16px;color:var(--t2);text-decoration:none;font-size:14px;font-weight:500;border-radius:8px;transition:.2s}
 .nav a:hover{color:var(--t1);background:var(--acc-d)}.nav a.on{color:var(--acc);background:var(--acc-d)}
 .cbtn{padding:10px 20px;border:1px solid var(--acc);background:var(--acc-d);color:var(--acc);font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;border-radius:10px;cursor:pointer;transition:.25s;margin-left:12px}
-.cbtn:hover{background:var(--acc);color:var(--bg);box-shadow:0 0 24px var(--acc-g)}
-.cbtn.ok{border-color:var(--grn);color:var(--grn)}
+.cbtn:hover{background:var(--acc);color:var(--bg);box-shadow:0 0 24px var(--acc-g)}.cbtn.ok{border-color:var(--grn);color:var(--grn)}
 
 .hero{text-align:center;padding:48px 24px 12px;position:relative;z-index:1}
 .hero h1{font-size:36px;font-weight:800;letter-spacing:-1px;margin-bottom:8px}.hero h1 span{color:var(--acc)}
 .hero p{color:var(--t2);font-size:15px;max-width:600px;margin:0 auto;line-height:1.6}
 
-/* Section titles */
 .sec-title{max-width:1300px;margin:32px auto 14px;padding:0 24px;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--t3);display:flex;align-items:center;gap:10px}
 .sec-title::after{content:'';flex:1;height:1px;background:var(--bdr)}
 
-/* Stats */
 .stats{display:flex;justify-content:center;gap:40px;padding:20px 24px;margin:0 auto 8px;max-width:800px;flex-wrap:wrap}
 .st{text-align:center}.st-l{font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:var(--t3);font-weight:600;margin-bottom:4px}
 .st-v{font-family:'JetBrains Mono',monospace;font-size:22px;font-weight:700;color:var(--acc)}
 
-/* Grid */
 .grid{max-width:1300px;margin:0 auto;padding:0 24px 24px;display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px}
 .grid-2{grid-template-columns:repeat(auto-fill,minmax(380px,1fr))}
 
-/* Card */
 .cd{background:var(--card);border:1px solid var(--bdr);border-radius:16px;overflow:hidden;transition:.3s;animation:fu .5s ease-out both}
 .cd:hover{border-color:var(--bdr-a);transform:translateY(-2px);box-shadow:0 8px 32px rgba(100,255,218,.06)}
 .cd:nth-child(1){animation-delay:.03s}.cd:nth-child(2){animation-delay:.09s}.cd:nth-child(3){animation-delay:.15s}.cd:nth-child(4){animation-delay:.21s}
@@ -52,19 +47,17 @@ body::before{content:'';position:fixed;top:-200px;left:50%;transform:translateX(
 img.ti{object-fit:cover}.tk-ic>:nth-child(n+2){margin-left:-10px}
 .cd-nm{font-weight:700;font-size:14px}.cd-tp{font-size:9px;color:var(--t3);text-transform:uppercase;letter-spacing:1px;margin-top:1px}
 .badge{padding:3px 9px;border-radius:6px;font-size:9px;font-weight:600;font-family:'JetBrains Mono',monospace}
-.b-on{background:var(--acc-d);color:var(--acc);border:1px solid var(--acc-g)}
-.b-off{background:var(--input);color:var(--t3);border:1px solid var(--bdr)}
+.b-on{background:var(--acc-d);color:var(--acc);border:1px solid var(--acc-g)}.b-off{background:var(--input);color:var(--t3);border:1px solid var(--bdr)}
 
 .cd-st{display:grid;grid-template-columns:repeat(3,1fr)}
-.cs{padding:11px 8px;text-align:center;border-right:1px solid var(--bdr)}
-.cs:last-child{border-right:none}
+.cs{padding:11px 8px;text-align:center;border-right:1px solid var(--bdr)}.cs:last-child{border-right:none}
 .cs-l{font-size:8px;color:var(--t3);text-transform:uppercase;letter-spacing:1px;margin-bottom:2px;font-weight:600}
-.cs-v{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;color:var(--t1)}
-.cs-v.g{color:var(--grn)}.cs-v.o{color:var(--org)}
+.cs-v{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;color:var(--t1)}.cs-v.g{color:var(--grn)}.cs-v.o{color:var(--org)}
 
 .tabs{display:flex;border-bottom:1px solid var(--bdr)}
 .tab{flex:1;padding:10px;text-align:center;font-size:11px;font-weight:600;color:var(--t3);cursor:pointer;transition:.2s;border:none;border-bottom:2px solid transparent;background:none;font-family:'Inter',sans-serif}
 .tab:hover{color:var(--t2)}.tab.on{color:var(--acc);border-bottom-color:var(--acc);background:var(--acc-d)}
+.tab.on-r{color:var(--red);border-bottom-color:var(--red);background:var(--red-d)}
 
 .fm{padding:16px 18px 18px}
 .fg{margin-bottom:12px}
@@ -75,22 +68,22 @@ img.ti{object-fit:cover}.tk-ic>:nth-child(n+2){margin-left:-10px}
 .iw input{flex:1;background:none;border:none;outline:none;color:var(--t1);font-family:'JetBrains Mono',monospace;font-size:16px;font-weight:600;padding:9px 10px}
 .iw input::placeholder{color:var(--t3);font-weight:400}
 .itt{display:flex;align-items:center;gap:5px;padding:7px 11px;background:var(--card);border-radius:8px;font-size:11px;font-weight:600;color:var(--t1);white-space:nowrap;margin-right:4px}
-.itl{width:16px;height:16px;border-radius:50%;object-fit:cover}
-.itd{width:7px;height:7px;border-radius:50%}
+.itl{width:16px;height:16px;border-radius:50%;object-fit:cover}.itd{width:7px;height:7px;border-radius:50%}
 
 .ir{margin:12px 0;padding:10px 12px;background:var(--input);border-radius:9px;border:1px solid var(--bdr)}
 .row{display:flex;justify-content:space-between;align-items:center;padding:3px 0;font-size:10px}
 .row-l{color:var(--t3)}.row-v{font-family:'JetBrains Mono',monospace;color:var(--t2);font-weight:500;font-size:10px}
-
-.tav{display:flex;align-items:center;justify-content:space-between;padding:7px 11px;margin-bottom:12px;background:linear-gradient(135deg,#64ffda08,#64ffda04);border:1px solid var(--acc-d);border-radius:8px;font-size:10px}
-.tav-l{color:var(--t3)}.tav-v{font-family:'JetBrains Mono',monospace;color:var(--acc);font-weight:600;font-size:11px}
 
 .btn{width:100%;padding:12px;border:none;border-radius:12px;font-family:'Inter',sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:.25s;margin-top:4px}
 .btn-s{background:linear-gradient(135deg,var(--acc),#00b894);color:var(--bg)}
 .btn-s:hover{box-shadow:0 4px 24px var(--acc-g);transform:translateY(-1px)}
 .btn-b{background:linear-gradient(135deg,var(--org),#ff9f43);color:var(--bg)}
 .btn-b:hover{box-shadow:0 4px 24px var(--org-d);transform:translateY(-1px)}
-.btn:disabled{background:var(--bdr)!important;color:var(--t3)!important;cursor:not-allowed;box-shadow:none!important;transform:none!important}
+.btn-w{background:transparent;border:1px solid var(--red);color:var(--red)}
+.btn-w:hover{background:var(--red-d);transform:translateY(-1px)}
+.btn-rep{background:transparent;border:1px solid var(--grn);color:var(--grn)}
+.btn-rep:hover{background:var(--acc-d);transform:translateY(-1px)}
+.btn:disabled{background:var(--bdr)!important;color:var(--t3)!important;cursor:not-allowed;box-shadow:none!important;transform:none!important;border-color:var(--bdr)!important}
 
 .pos{border-top:1px solid var(--bdr);padding:12px 18px 16px}
 .pos-t{font-size:9px;text-transform:uppercase;letter-spacing:1.5px;color:var(--t3);font-weight:600;margin-bottom:6px}
@@ -117,7 +110,7 @@ img.ti{object-fit:cover}.tk-ic>:nth-child(n+2){margin-left:-10px}
 <header class="hdr">
   <a href="https://cronostreasury.github.io" class="logo">
     <div class="logo-i">CTR</div>
-    <div class="logo-t"><span>CTR</span> Lend</div>
+    <div class="logo-t"><span>CTR</span> Finance</div>
   </a>
   <nav class="nav">
     <a href="https://cronostreasury.github.io">Dashboard</a>
@@ -129,7 +122,7 @@ img.ti{object-fit:cover}.tk-ic>:nth-child(n+2){margin-left:-10px}
 
 <section class="hero">
   <h1>Isolated <span>Lending</span> Markets</h1>
-  <p>Supply crypto assets as collateral and borrow stables or CRO. Supply USDC or CRO to earn yield from borrowers. Treasury-seeded, open to all.</p>
+  <p>Supply crypto as collateral and borrow stables or CRO. Supply USDC or CRO to earn yield from borrowers. Treasury-seeded, open to all.</p>
 </section>
 
 <div class="stats">
@@ -139,22 +132,19 @@ img.ti{object-fit:cover}.tk-ic>:nth-child(n+2){margin-left:-10px}
   <div class="st"><div class="st-l">Earn Pools</div><div class="st-v">2</div></div>
 </div>
 
-<!-- EARN POOLS -->
 <div class="sec-title">Earn — Supply USDC or CRO to earn yield</div>
 <div class="grid grid-2" id="earnGrid"></div>
 
-<!-- BORROW MARKETS -->
 <div class="sec-title">Borrow — Supply collateral, borrow against it</div>
 <div class="grid" id="mkGrid"></div>
 
 <div class="disc">
-  <p>CTR Lend is a prototype interface. No smart contract is deployed yet. Rates and values are simulated. Do not send real funds. A Solidity developer and security audit are required before launch.</p>
+  <p>CTR Finance is a prototype interface. No smart contract is deployed yet. Rates and values are simulated. Do not send real funds. A Solidity developer and security audit are required before launch.</p>
 </div>
 
 <script>
 const RPC='https://evm.cronos.org',CHAIN='0x19',TWALLET='0x96A6cd06338eFE754f200Aba9fF07788c16E5F20';
 
-// === MARKETS ===
 const MKS=[
   {id:'btc-usdc',coll:{sym:'CDCBTC',name:'CDC Bitcoin',addr:'0x2e53c5586e12a99d4CAE366E9Fc5C14fE9c6495d',dec:8,col:'#F7931A'},borr:'USDC',ltv:50,liq:65,apr:3.0},
   {id:'eth-usdc',coll:{sym:'CDCETH',name:'CDC Ethereum',addr:'0x7a7c9db510aB29A2FC362a4c34260BEcB5cE3446',dec:18,col:'#627EEA'},borr:'USDC',ltv:50,liq:65,apr:3.5},
@@ -163,7 +153,6 @@ const MKS=[
 ];
 MKS.forEach(m=>{m.supUsd=0;m.borUsd=0;m.util=0});
 
-// Earn pools: supply USDC or CRO
 const EARN=[
   {id:'earn-usdc',sym:'USDC',name:'USD Coin',addr:'0xc21223249CA28397B4B6541dfFaEcC539BfF0c59',dec:6,col:'#2775CA',feeds:['btc-usdc','eth-usdc']},
   {id:'earn-cro',sym:'CRO',name:'Cronos',addr:'native',dec:18,col:'#002D74',feeds:['lcro-cro','pack-cro']},
@@ -171,69 +160,65 @@ const EARN=[
 
 let me=null,P={},logos={},wb={},tb={},uPos={},earnPos={};
 
-// === RPC ===
 async function rpc(m,p){const r=await fetch(RPC,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({jsonrpc:'2.0',id:1,method:m,params:p})});return(await r.json()).result}
 
-// === CONNECT ===
 async function connect(){
   if(!window.ethereum){alert('Install MetaMask.');return}
-  const a=await window.ethereum.request({method:'eth_requestAccounts'});
-  if(!a.length)return;
+  const a=await window.ethereum.request({method:'eth_requestAccounts'});if(!a.length)return;
   try{await window.ethereum.request({method:'wallet_switchEthereumChain',params:[{chainId:CHAIN}]})}catch(e){if(e.code===4902)await window.ethereum.request({method:'wallet_addEthereumChain',params:[{chainId:CHAIN,chainName:'Cronos',nativeCurrency:{name:'CRO',symbol:'CRO',decimals:18},rpcUrls:[RPC],blockExplorerUrls:['https://cronoscan.com']}]})}
   me=a[0];const b=document.getElementById('cBtn');b.textContent=me.slice(0,6)+'...'+me.slice(-4);b.classList.add('ok');
   await fetchUserBal();render();
 }
 
-// === PRICES + LOGOS ===
 async function fetchPrices(){
   try{
-    const cr=await fetch('https://api.dexscreener.com/latest/dex/pairs/cronos/0xcd7d2b39f36e4e3e1b033ada192a867002eb9679');
-    const cd=await cr.json();
+    const cr=await fetch('https://api.dexscreener.com/latest/dex/pairs/cronos/0xcd7d2b39f36e4e3e1b033ada192a867002eb9679');const cd=await cr.json();
     if(cd.pair){P.CRO=parseFloat(cd.pair.priceUsd)||.08;if(cd.pair.info?.imageUrl)logos.CRO=cd.pair.info.imageUrl}
     const addrs='0x2e53c5586e12a99d4CAE366E9Fc5C14fE9c6495d,0x7a7c9db510aB29A2FC362a4c34260BEcB5cE3446,0x9Fae23A2700FEeCd5b93e43fDBc03c76AA7C08A6,0x0d0b4a6FC6e7f5635C2FF38dE75AF2e96D6D6804,0xc21223249CA28397B4B6541dfFaEcC539BfF0c59,0xF3672F0cF2E45B28AC4a1D50FD8aC2eB555c21FC';
     const r=await fetch('https://api.dexscreener.com/latest/dex/tokens/'+addrs);const d=await r.json();
-    const bst={};
-    (d.pairs||[]).forEach(p=>{const a=p.baseToken?.address?.toLowerCase(),l=parseFloat(p.liquidity?.usd||0);if(a&&(!bst[a]||l>bst[a].l))bst[a]={p:parseFloat(p.priceUsd)||0,l,img:p.info?.imageUrl||null}});
+    const bst={};(d.pairs||[]).forEach(p=>{const a=p.baseToken?.address?.toLowerCase(),l=parseFloat(p.liquidity?.usd||0);if(a&&(!bst[a]||l>bst[a].l))bst[a]={p:parseFloat(p.priceUsd)||0,l,img:p.info?.imageUrl||null}});
     const mp={'0x2e53c5586e12a99d4cae366e9fc5c14fe9c6495d':'CDCBTC','0x7a7c9db510ab29a2fc362a4c34260becb5ce3446':'CDCETH','0x9fae23a2700feecd5b93e43fdbc03c76aa7c08a6':'LCRO','0x0d0b4a6fc6e7f5635c2ff38de75af2e96d6d6804':'PACK','0xc21223249ca28397b4b6541dffaecc539bff0c59':'USDC','0xf3672f0cf2e45b28ac4a1d50fd8ac2eb555c21fc':'CTR'};
     for(const[a,s]of Object.entries(mp)){if(bst[a]){P[s]=bst[a].p;if(bst[a].img)logos[s]=bst[a].img}}
   }catch(e){console.error(e)}
-  if(!P.CRO)P.CRO=.08;if(!P.CDCBTC)P.CDCBTC=84000;if(!P.CDCETH)P.CDCETH=2100;if(!P.LCRO)P.LCRO=.095;if(!P.PACK)P.PACK=.00018;if(!P.USDC)P.USDC=1;if(!P.CTR)P.CTR=.00005;
+  if(!P.CRO)P.CRO=.08;if(!P.CDCBTC)P.CDCBTC=84000;if(!P.CDCETH)P.CDCETH=2100;if(!P.LCRO)P.LCRO=.095;if(!P.PACK)P.PACK=.00018;if(!P.USDC)P.USDC=1;
   if(!logos.CRO)logos.CRO='https://dd.dexscreener.com/ds-data/tokens/cronos/0x5C7F8A570d578ED60E9120223e40eFbE85f2f0D7.png';
+  // Hardcoded fallbacks — cryptologos.cc for majors, DexScreener for Cronos-native
+  if(!logos.CDCBTC)logos.CDCBTC='https://cryptologos.cc/logos/bitcoin-btc-logo.png?v=040';
+  if(!logos.CDCETH)logos.CDCETH='https://cryptologos.cc/logos/ethereum-eth-logo.png?v=040';
+  if(!logos.USDC)logos.USDC='https://cryptologos.cc/logos/usd-coin-usdc-logo.png?v=040';
+  if(!logos.LCRO)logos.LCRO='https://dd.dexscreener.com/ds-data/tokens/cronos/0x9Fae23A2700FEeCd5b93e43fDBc03c76AA7C08A6.png';
+  if(!logos.PACK)logos.PACK='https://dd.dexscreener.com/ds-data/tokens/cronos/0x0d0b4a6FC6e7f5635C2FF38dE75AF2e96D6D6804.png';
+  if(!logos.CTR)logos.CTR='https://dd.dexscreener.com/ds-data/tokens/cronos/0xF3672F0cF2E45B28AC4a1D50FD8aC2eB555c21FC.png';
 }
 
-// === TREASURY BALANCES ===
 async function fetchTreasury(){
   const sig='0x70a08231000000000000000000000000'+TWALLET.slice(2).toLowerCase().padStart(64,'0');
-  const tokens=[...MKS.map(m=>m.coll),{sym:'USDC',addr:'0xc21223249CA28397B4B6541dfFaEcC539BfF0c59',dec:6}];
-  for(const t of tokens){
+  for(const t of[{sym:'USDC',addr:'0xc21223249CA28397B4B6541dfFaEcC539BfF0c59',dec:6},...MKS.map(m=>m.coll)]){
     try{const r=await rpc('eth_call',[{to:t.addr,data:sig},'latest']);tb[t.sym]=Number(BigInt(r))/(10**t.dec)}catch(e){tb[t.sym]=0}
   }
   try{const r=await rpc('eth_getBalance',[TWALLET,'latest']);tb.CRO=Number(BigInt(r))/1e18}catch(e){tb.CRO=0}
 }
 
-// === USER BALANCES ===
 async function fetchUserBal(){
   if(!me)return;
   const sig='0x70a08231000000000000000000000000'+me.slice(2).toLowerCase().padStart(64,'0');
-  const tokens=[...MKS.map(m=>m.coll),{sym:'USDC',addr:'0xc21223249CA28397B4B6541dfFaEcC539BfF0c59',dec:6}];
-  for(const t of tokens){
+  for(const t of[{sym:'USDC',addr:'0xc21223249CA28397B4B6541dfFaEcC539BfF0c59',dec:6},...MKS.map(m=>m.coll)]){
     try{const r=await rpc('eth_call',[{to:t.addr,data:sig},'latest']);wb[t.sym]=Number(BigInt(r))/(10**t.dec)}catch(e){wb[t.sym]=0}
   }
   try{const r=await rpc('eth_getBalance',[me,'latest']);wb.CRO=Number(BigInt(r))/1e18}catch(e){wb.CRO=0}
 }
 
 // === MATH ===
+function getEarnPoolTotal(sym){
+  const ep=EARN.find(e=>e.sym===sym);
+  return (tb[sym]||0)+(earnPos[ep?.id]?.supplied||0);
+}
+
 function earnAPY(pool){
-  // APY for earn pool = weighted avg of borrow APR × utilization across fed markets
-  let totalBorUsd=0,totalSupUsd=0;
-  pool.feeds.forEach(fid=>{const m=MKS.find(x=>x.id===fid);if(m){totalBorUsd+=m.borUsd;totalSupUsd+=m.supUsd}});
-  // Earn pool supply = treasury + user supplied
-  const tBal=tb[pool.sym]||0;const uBal=earnPos[pool.id]?.supplied||0;
-  const earnSupUsd=(tBal+uBal)*(P[pool.sym]||0);
-  if(earnSupUsd<=0)return 0;
-  // Weighted APR from borrowers
+  const earnTotal=getEarnPoolTotal(pool.sym)*(P[pool.sym]||0);
+  if(earnTotal<=0)return 0;
   let wAPR=0;
-  pool.feeds.forEach(fid=>{const m=MKS.find(x=>x.id===fid);if(m&&m.borUsd>0)wAPR+=m.apr*(m.borUsd/earnSupUsd)});
+  pool.feeds.forEach(fid=>{const m=MKS.find(x=>x.id===fid);if(m&&m.borUsd>0)wAPR+=m.apr*(m.borUsd/earnTotal)});
   return Math.min(wAPR,50);
 }
 
@@ -242,28 +227,21 @@ function recalc(){
     const pos=uPos[m.id]||{supplied:0,borrowed:0};
     m.supUsd=pos.supplied*(P[m.coll.sym]||0);
     m.borUsd=pos.borrowed*(P[m.borr]||0);
-    const earnSym=m.borr;const ep=EARN.find(e=>e.sym===earnSym);
-    const totalLiq=((tb[earnSym]||0)+(earnPos[ep?.id]?.supplied||0))*(P[earnSym]||0);
+    const totalLiq=getEarnPoolTotal(m.borr)*(P[m.borr]||0);
     m.util=totalLiq>0?Math.min(m.borUsd/totalLiq*100,100):0;
   });
 }
 
 function getAvailBorrow(borrSym){
-  const ep=EARN.find(e=>e.sym===borrSym);
-  const tBal=tb[borrSym]||0;
-  const uEarn=earnPos[ep?.id]?.supplied||0;
-  // Subtract already borrowed
-  let totalBorrowed=0;
-  MKS.filter(m=>m.borr===borrSym).forEach(m=>{totalBorrowed+=(uPos[m.id]?.borrowed||0)});
-  return Math.max(0,tBal+uEarn-totalBorrowed);
+  const total=getEarnPoolTotal(borrSym);
+  let borrowed=0;MKS.filter(m=>m.borr===borrSym).forEach(m=>{borrowed+=(uPos[m.id]?.borrowed||0)});
+  return Math.max(0,total-borrowed);
 }
 
 // === FORMAT ===
 const fn=n=>n>=1e6?(n/1e6).toFixed(2)+'M':n>=1e3?(n/1e3).toFixed(2)+'K':n<.01&&n>0?n.toFixed(6):n.toFixed(2);
 const fb=n=>{if(n==null)return'—';if(n>=1e9)return(n/1e9).toFixed(2)+'B';if(n>=1e6)return(n/1e6).toFixed(2)+'M';if(n>=1e3)return(n/1e3).toFixed(1)+'K';return n.toFixed(2)};
 const fp=p=>p<.0001?p.toFixed(8):p<.01?p.toFixed(6):p<1?p.toFixed(4):p.toFixed(2);
-
-// === ICON HELPERS ===
 const ic=(logo,col,sym)=>logo?'<img class="ti" src="'+logo+'" alt="'+sym+'" onerror="this.outerHTML=\'<div class=ti style=background:'+col+'>'+sym.slice(0,4)+'</div>\'">':'<div class="ti" style="background:'+col+'">'+sym.slice(0,4)+'</div>';
 const iic=(logo,col)=>logo?'<img src="'+logo+'" class="itl">':'<div class="itd" style="background:'+col+'"></div>';
 
@@ -272,7 +250,7 @@ function render(){
   recalc();
   let tSup=0,tBor=0;
   MKS.forEach(m=>{tSup+=m.supUsd;tBor+=m.borUsd});
-  EARN.forEach(ep=>{const bal=(tb[ep.sym]||0)+(earnPos[ep.id]?.supplied||0);tSup+=bal*(P[ep.sym]||0)});
+  EARN.forEach(ep=>{tSup+=getEarnPoolTotal(ep.sym)*(P[ep.sym]||0)});
   document.getElementById('gSup').textContent='$'+fn(tSup);
   document.getElementById('gBor').textContent='$'+fn(tBor);
   document.getElementById('earnGrid').innerHTML=EARN.map(renderEarn).join('');
@@ -281,38 +259,46 @@ function render(){
 
 function renderEarn(ep){
   const apy=earnAPY(ep);
-  const tBal=tb[ep.sym]||0;
-  const uBal=earnPos[ep.id]?.supplied||0;
-  const totalBal=tBal+uBal;
-  const totalUsd=totalBal*(P[ep.sym]||0);
+  const poolTotal=getEarnPoolTotal(ep.sym);
+  const poolUsd=poolTotal*(P[ep.sym]||0);
   const wBal=wb[ep.sym];
   const lg=logos[ep.sym];
   const tab=ep._tab||'supply';
+  const mySupply=earnPos[ep.id]?.supplied||0;
 
-  let borrowed=0;
-  ep.feeds.forEach(fid=>{borrowed+=(uPos[fid]?.borrowed||0)});
-  const util=totalBal>0?Math.min(borrowed/totalBal*100,100):0;
+  let borrowed=0;ep.feeds.forEach(fid=>{borrowed+=(uPos[fid]?.borrowed||0)});
+  const util=poolTotal>0?Math.min(borrowed/poolTotal*100,100):0;
+
+  let formHTML='';
+  if(tab==='supply'){
+    formHTML='<div class="fg"><div class="fl"><span>Amount to supply</span><span class="fb">Balance: <span onclick="setMaxEarn(\''+ep.id+'\')">'+(wBal!=null?fb(wBal)+' '+ep.sym:'—')+'</span></span></div>'
+      +'<div class="iw"><input type="number" id="in-earn-'+ep.id+'" placeholder="0.00"><div class="itt">'+iic(lg,ep.col)+' '+ep.sym+'</div></div></div>'
+      +'<div class="ir"><div class="row"><span class="row-l tip" data-tip="Earned from borrower interest">Earn APY</span><span class="row-v" style="color:var(--grn)">'+apy.toFixed(2)+'%</span></div>'
+      +'<div class="row"><span class="row-l">Feeds markets</span><span class="row-v">'+ep.feeds.map(f=>{const m=MKS.find(x=>x.id===f);return m?m.coll.sym+'/'+m.borr:''}).join(', ')+'</span></div></div>'
+      +'<button class="btn btn-s" onclick="doEarnSupply(\''+ep.id+'\')" '+(me?'':'disabled')+'>'+(me?'Supply '+ep.sym:'Connect Wallet')+'</button>';
+  } else {
+    formHTML='<div class="fg"><div class="fl"><span>Amount to withdraw</span><span class="fb">Deposited: <span onclick="setMaxEarnW(\''+ep.id+'\')">'+fb(mySupply)+' '+ep.sym+'</span></span></div>'
+      +'<div class="iw"><input type="number" id="in-earnw-'+ep.id+'" placeholder="0.00"><div class="itt">'+iic(lg,ep.col)+' '+ep.sym+'</div></div></div>'
+      +'<div class="ir"><div class="row"><span class="row-l">Your deposit</span><span class="row-v">'+fb(mySupply)+' '+ep.sym+'</span></div>'
+      +'<div class="row"><span class="row-l">Value</span><span class="row-v">$'+fn(mySupply*(P[ep.sym]||0))+'</span></div></div>'
+      +'<button class="btn btn-w" onclick="doEarnWithdraw(\''+ep.id+'\')" '+(me&&mySupply>0?'':'disabled')+'>Withdraw '+ep.sym+'</button>';
+  }
 
   return '<div class="cd">'
     +'<div class="cd-h"><div class="cd-tk"><div class="tk-ic">'+ic(lg,ep.col,ep.sym)+'</div>'
     +'<div><div class="cd-nm">Earn '+ep.sym+'</div><div class="cd-tp">Supply to earn yield</div></div></div>'
-    +'<div class="badge '+(totalBal>0?'b-on':'b-off')+'">'+(totalBal>0?'ACTIVE':'EMPTY')+'</div></div>'
-
+    +'<div class="badge '+(poolTotal>0?'b-on':'b-off')+'">'+(poolTotal>0?'ACTIVE':'EMPTY')+'</div></div>'
     +'<div class="cd-st">'
     +'<div class="cs"><div class="cs-l">Earn APY</div><div class="cs-v g">'+apy.toFixed(2)+'%</div></div>'
-    +'<div class="cs"><div class="cs-l">Pool Size</div><div class="cs-v">$'+fn(totalUsd)+'</div></div>'
+    +'<div class="cs"><div class="cs-l">Pool Size</div><div class="cs-v">$'+fn(poolUsd)+'</div></div>'
     +'<div class="cs"><div class="cs-l">Utilization</div><div class="cs-v">'+util.toFixed(0)+'%</div></div>'
     +'</div>'
-
-    +'<div class="fm">'
-    +'<div class="tav"><span class="tav-l">Treasury Seeded</span><span class="tav-v">'+fb(tBal)+' '+ep.sym+'</span></div>'
-    +(uBal>0?'<div class="tav"><span class="tav-l">Your Supply</span><span class="tav-v">'+fb(uBal)+' '+ep.sym+'</span></div>':'')
-    +'<div class="fg"><div class="fl"><span>Supply '+ep.sym+'</span><span class="fb">Balance: <span onclick="setMaxEarn(\''+ep.id+'\')">'+(wBal!==undefined?fb(wBal)+' '+ep.sym:'—')+'</span></span></div>'
-    +'<div class="iw"><input type="number" id="in-earn-'+ep.id+'" placeholder="0.00"><div class="itt">'+iic(lg,ep.col)+' '+ep.sym+'</div></div></div>'
-    +'<div class="ir"><div class="row"><span class="row-l tip" data-tip="Earned from borrower interest">Earn APY</span><span class="row-v" style="color:var(--grn)">'+apy.toFixed(2)+'%</span></div>'
-    +'<div class="row"><span class="row-l">Feeds markets</span><span class="row-v">'+ep.feeds.map(f=>{const m=MKS.find(x=>x.id===f);return m?m.coll.sym+'/'+m.borr:''}).join(', ')+'</span></div></div>'
-    +'<button class="btn btn-s" onclick="doEarnSupply(\''+ep.id+'\')" '+(me?'':'disabled')+'>'+( me?'Supply '+ep.sym:'Connect Wallet')+'</button>'
-    +'</div></div>';
+    +'<div class="tabs">'
+    +'<button class="tab '+(tab==='supply'?'on':'')+'" onclick="etab(\''+ep.id+'\',\'supply\')">Supply</button>'
+    +'<button class="tab '+(tab==='withdraw'?'on-r':'')+'" onclick="etab(\''+ep.id+'\',\'withdraw\')">Withdraw</button>'
+    +'</div>'
+    +'<div class="fm">'+formHTML+'</div>'
+    +'</div>';
 }
 
 function renderMk(m){
@@ -331,101 +317,143 @@ function renderMk(m){
   const cBal=wb[cS],cL=logos[cS],bL=logos[bS];
   const avail=getAvailBorrow(bS);
 
+  let formHTML='';
+  if(tab==='supply'){
+    formHTML='<div class="fg"><div class="fl"><span>Collateral amount</span><span class="fb">Balance: <span onclick="setMaxColl(\''+m.id+'\')">'+(cBal!=null?fb(cBal)+' '+cS:'—')+'</span></span></div>'
+      +'<div class="iw"><input type="number" id="in-s-'+m.id+'" placeholder="0.00"><div class="itt">'+iic(cL,m.coll.col)+' '+cS+'</div></div></div>'
+      +'<div class="ir">'
+      +'<div class="row"><span class="row-l tip" data-tip="Max borrow vs collateral">LTV</span><span class="row-v">'+m.ltv+'%</span></div>'
+      +'<div class="row"><span class="row-l tip" data-tip="Liquidation trigger">Liq. threshold</span><span class="row-v">'+m.liq+'%</span></div>'
+      +'<div class="row"><span class="row-l">'+cS+' price</span><span class="row-v">$'+fp(cP)+'</span></div></div>'
+      +'<button class="btn btn-s" onclick="doCollSupply(\''+m.id+'\')" '+(me?'':'disabled')+'>'+(me?'Supply '+cS:'Connect Wallet')+'</button>';
+  } else if(tab==='borrow'){
+    formHTML='<div class="fg"><div class="fl"><span>Borrow amount</span><span class="fb">Max: <span>'+(maxBUsd>0&&bP>0?fb(maxBUsd/bP)+' '+bS:'—')+'</span></span></div>'
+      +'<div class="iw"><input type="number" id="in-b-'+m.id+'" placeholder="0.00"><div class="itt">'+iic(bL,bS==='USDC'?'#2775CA':'#002D74')+' '+bS+'</div></div></div>'
+      +'<div class="ir">'
+      +'<div class="row"><span class="row-l">Available liquidity</span><span class="row-v">'+fb(avail)+' '+bS+'</span></div>'
+      +'<div class="row"><span class="row-l">Collateral</span><span class="row-v">'+(pos.supplied>0?fb(pos.supplied)+' '+cS:'None')+'</span></div>'
+      +'<div class="row"><span class="row-l">Collateral value</span><span class="row-v">$'+fn(sUsd)+'</span></div>'
+      +'<div class="row"><span class="row-l">Max borrow ('+m.ltv+'%)</span><span class="row-v">$'+fn(maxBUsd)+'</span></div>'
+      +'<div class="row"><span class="row-l">Borrow APR</span><span class="row-v" style="color:var(--org)">'+m.apr+'%</span></div></div>'
+      +'<button class="btn btn-b" onclick="doBorrow(\''+m.id+'\')" '+(!me||sUsd<=0?'disabled':'')+'>'
+      +(!me?'Connect Wallet':sUsd<=0?'Supply collateral first':'Borrow '+bS)+'</button>';
+  } else if(tab==='repay'){
+    formHTML='<div class="fg"><div class="fl"><span>Repay amount</span><span class="fb">Owed: <span onclick="setMaxRepay(\''+m.id+'\')">'+fb(pos.borrowed)+' '+bS+'</span></span></div>'
+      +'<div class="iw"><input type="number" id="in-r-'+m.id+'" placeholder="0.00"><div class="itt">'+iic(bL,bS==='USDC'?'#2775CA':'#002D74')+' '+bS+'</div></div></div>'
+      +'<div class="ir"><div class="row"><span class="row-l">Outstanding debt</span><span class="row-v">'+fb(pos.borrowed)+' '+bS+'</span></div>'
+      +'<div class="row"><span class="row-l">Debt value</span><span class="row-v">$'+fn(bUsd)+'</span></div></div>'
+      +'<button class="btn btn-rep" onclick="doRepay(\''+m.id+'\')" '+(me&&pos.borrowed>0?'':'disabled')+'>Repay '+bS+'</button>';
+  } else { // withdraw
+    const canWithdraw=pos.supplied>0;
+    const maxW=bUsd>0?Math.max(0,pos.supplied-(bUsd/(cP*m.liq/100))):pos.supplied;
+    formHTML='<div class="fg"><div class="fl"><span>Withdraw amount</span><span class="fb">Max safe: <span onclick="setMaxCollW(\''+m.id+'\')">'+fb(maxW)+' '+cS+'</span></span></div>'
+      +'<div class="iw"><input type="number" id="in-w-'+m.id+'" placeholder="0.00"><div class="itt">'+iic(cL,m.coll.col)+' '+cS+'</div></div></div>'
+      +'<div class="ir"><div class="row"><span class="row-l">Supplied</span><span class="row-v">'+fb(pos.supplied)+' '+cS+'</span></div>'
+      +'<div class="row"><span class="row-l">Outstanding debt</span><span class="row-v">'+fb(pos.borrowed)+' '+bS+'</span></div>'
+      +'<div class="row"><span class="row-l tip" data-tip="Repay debt to unlock more collateral">Max withdrawable</span><span class="row-v">'+fb(maxW)+' '+cS+'</span></div></div>'
+      +'<button class="btn btn-w" onclick="doCollWithdraw(\''+m.id+'\')" '+(me&&canWithdraw?'':'disabled')+'>Withdraw '+cS+'</button>';
+  }
+
   return '<div class="cd">'
     +'<div class="cd-h"><div class="cd-tk"><div class="tk-ic">'+ic(cL,m.coll.col,cS)+ic(bL,bS==='USDC'?'#2775CA':'#002D74',bS)+'</div>'
     +'<div><div class="cd-nm">'+cS+' / '+bS+'</div><div class="cd-tp">Isolated market</div></div></div>'
     +'<div class="badge '+(m.supUsd>0?'b-on':'b-off')+'">'+(m.supUsd>0?'ACTIVE':'EMPTY')+'</div></div>'
-
     +'<div class="cd-st">'
     +'<div class="cs"><div class="cs-l">Supply APY</div><div class="cs-v g">'+supAPY.toFixed(2)+'%</div></div>'
     +'<div class="cs"><div class="cs-l">Borrow APR</div><div class="cs-v o">'+m.apr+'%</div></div>'
-    +'<div class="cs"><div class="cs-l">LTV</div><div class="cs-v">'+m.ltv+'%</div></div>'
-    +'</div>'
-
+    +'<div class="cs"><div class="cs-l">LTV</div><div class="cs-v">'+m.ltv+'%</div></div></div>'
     +'<div class="tabs">'
-    +'<button class="tab '+(tab==='supply'?'on':'')+'" onclick="stab(\''+m.id+'\',\'supply\')">Supply '+cS+'</button>'
-    +'<button class="tab '+(tab==='borrow'?'on':'')+'" onclick="stab(\''+m.id+'\',\'borrow\')">Borrow '+bS+'</button>'
+    +'<button class="tab '+(tab==='supply'?'on':'')+'" onclick="stab(\''+m.id+'\',\'supply\')">Supply</button>'
+    +'<button class="tab '+(tab==='borrow'?'on':'')+'" onclick="stab(\''+m.id+'\',\'borrow\')">Borrow</button>'
+    +'<button class="tab '+(tab==='repay'?'on':'')+'" onclick="stab(\''+m.id+'\',\'repay\')">Repay</button>'
+    +'<button class="tab '+(tab==='withdraw'?'on-r':'')+'" onclick="stab(\''+m.id+'\',\'withdraw\')">Withdraw</button>'
     +'</div>'
-
-    +'<div class="fm">'
-    +(tab==='supply'
-      ?'<div class="fg"><div class="fl"><span>Collateral amount</span><span class="fb">Balance: <span onclick="setMaxColl(\''+m.id+'\')">'+(cBal!==undefined?fb(cBal)+' '+cS:'—')+'</span></span></div>'
-       +'<div class="iw"><input type="number" id="in-s-'+m.id+'" placeholder="0.00"><div class="itt">'+iic(cL,m.coll.col)+' '+cS+'</div></div></div>'
-       +'<div class="ir">'
-       +'<div class="row"><span class="row-l tip" data-tip="Max borrow vs collateral">LTV</span><span class="row-v">'+m.ltv+'%</span></div>'
-       +'<div class="row"><span class="row-l tip" data-tip="Liquidation trigger">Liq. threshold</span><span class="row-v">'+m.liq+'%</span></div>'
-       +'<div class="row"><span class="row-l">'+cS+' price</span><span class="row-v">$'+fp(cP)+'</span></div>'
-       +'</div>'
-       +'<button class="btn btn-s" onclick="doCollSupply(\''+m.id+'\')" '+(me?'':'disabled')+'>'+(me?'Supply '+cS:'Connect Wallet')+'</button>'
-
-      :'<div class="tav"><span class="tav-l">'+bS+' available</span><span class="tav-v">'+fb(avail)+' '+bS+'</span></div>'
-       +'<div class="fg"><div class="fl"><span>Borrow amount</span><span class="fb">Max: <span>'+(maxBUsd>0&&bP>0?fb(maxBUsd/bP)+' '+bS:'—')+'</span></span></div>'
-       +'<div class="iw"><input type="number" id="in-b-'+m.id+'" placeholder="0.00"><div class="itt">'+iic(bL,bS==='USDC'?'#2775CA':'#002D74')+' '+bS+'</div></div></div>'
-       +'<div class="ir">'
-       +'<div class="row"><span class="row-l">Collateral</span><span class="row-v">'+(pos.supplied>0?fb(pos.supplied)+' '+cS:'None')+'</span></div>'
-       +'<div class="row"><span class="row-l">Collateral value</span><span class="row-v">$'+fn(sUsd)+'</span></div>'
-       +'<div class="row"><span class="row-l">Max borrow ('+m.ltv+'%)</span><span class="row-v">$'+fn(maxBUsd)+'</span></div>'
-       +'<div class="row"><span class="row-l">Borrow APR</span><span class="row-v" style="color:var(--org)">'+m.apr+'%</span></div>'
-       +'<div class="row"><span class="row-l">'+bS+' price</span><span class="row-v">$'+fp(bP)+'</span></div>'
-       +'</div>'
-       +'<button class="btn btn-b" onclick="doBorrow(\''+m.id+'\')" '+(!me||sUsd<=0?'disabled':'')+'>'
-       +(!me?'Connect Wallet':sUsd<=0?'Supply collateral first':'Borrow '+bS)+'</button>'
-    )
-    +'</div>'
-
+    +'<div class="fm">'+formHTML+'</div>'
     +(pos.supplied>0||pos.borrowed>0
       ?'<div class="pos"><div class="pos-t">Your position</div>'
        +'<div class="pos-r"><span class="pos-rl">Supplied</span><span class="pos-rv" style="color:var(--grn)">'+fb(pos.supplied)+' '+cS+'</span></div>'
        +'<div class="pos-r"><span class="pos-rl">Borrowed</span><span class="pos-rv" style="color:var(--org)">'+fb(pos.borrowed)+' '+bS+'</span></div>'
        +'<div class="hb-c"><div class="hb-l"><span>Health factor</span><span style="color:'+hfCo+'">'+hfD+'</span></div>'
-       +'<div class="hb"><div class="hbf '+hfCl+'" style="width:'+hfP+'%"></div></div></div></div>'
-      :'')
+       +'<div class="hb"><div class="hbf '+hfCl+'" style="width:'+hfP+'%"></div></div></div></div>':'')
     +'</div>';
 }
 
 // === INTERACTIONS ===
 function stab(id,t){const m=MKS.find(x=>x.id===id);if(m){m._tab=t;render()}}
+function etab(id,t){const e=EARN.find(x=>x.id===id);if(e){e._tab=t;render()}}
 
-function setMaxColl(id){const m=MKS.find(x=>x.id===id);if(!m)return;const i=document.getElementById('in-s-'+id);if(i&&wb[m.coll.sym]!=null)i.value=wb[m.coll.sym]}
 function setMaxEarn(id){const ep=EARN.find(x=>x.id===id);if(!ep)return;const i=document.getElementById('in-earn-'+id);if(i&&wb[ep.sym]!=null)i.value=wb[ep.sym]}
+function setMaxEarnW(id){const ep=EARN.find(x=>x.id===id);if(!ep)return;const i=document.getElementById('in-earnw-'+id);if(i)i.value=earnPos[id]?.supplied||0}
+function setMaxColl(id){const m=MKS.find(x=>x.id===id);if(!m)return;const i=document.getElementById('in-s-'+id);if(i&&wb[m.coll.sym]!=null)i.value=wb[m.coll.sym]}
+function setMaxRepay(id){const m=MKS.find(x=>x.id===id);if(!m)return;const i=document.getElementById('in-r-'+id);const pos=uPos[id]||{borrowed:0};i.value=pos.borrowed}
+function setMaxCollW(id){const m=MKS.find(x=>x.id===id);if(!m)return;const i=document.getElementById('in-w-'+id);const pos=uPos[id]||{supplied:0,borrowed:0};const cP=P[m.coll.sym]||0;const bP=P[m.borr]||0;const bUsd=pos.borrowed*bP;const maxW=bUsd>0?Math.max(0,pos.supplied-(bUsd/(cP*m.liq/100))):pos.supplied;i.value=maxW}
 
 function doEarnSupply(id){
-  if(!me){connect();return}
-  const ep=EARN.find(x=>x.id===id);const i=document.getElementById('in-earn-'+id);
+  if(!me){connect();return}const ep=EARN.find(x=>x.id===id);const i=document.getElementById('in-earn-'+id);
   const a=parseFloat(i?.value);if(!a||a<=0){alert('Enter an amount.');return}
   if(a>(wb[ep.sym]||0)){alert('Insufficient '+ep.sym+' balance.');return}
-  if(!earnPos[id])earnPos[id]={supplied:0};
-  earnPos[id].supplied+=a;wb[ep.sym]-=a;
-  alert('✓ Simulated: Supplied '+fb(a)+' '+ep.sym+' to the earn pool.\n\nNo on-chain tx.');
-  render();
+  if(!earnPos[id])earnPos[id]={supplied:0};earnPos[id].supplied+=a;wb[ep.sym]-=a;
+  alert('✓ Supplied '+fb(a)+' '+ep.sym+' to earn pool.\n\nSimulation only.');render();
+}
+
+function doEarnWithdraw(id){
+  if(!me)return;const ep=EARN.find(x=>x.id===id);const i=document.getElementById('in-earnw-'+id);
+  const a=parseFloat(i?.value);if(!a||a<=0){alert('Enter an amount.');return}
+  const myS=earnPos[id]?.supplied||0;
+  if(a>myS){alert('Cannot withdraw more than deposited ('+fb(myS)+' '+ep.sym+').');return}
+  // Check liquidity: can't withdraw if it would make borrowed > available
+  const totalPool=getEarnPoolTotal(ep.sym);let totalBorrowed=0;
+  MKS.filter(m=>m.borr===ep.sym).forEach(m=>{totalBorrowed+=(uPos[m.id]?.borrowed||0)});
+  if(totalPool-a<totalBorrowed){alert('Cannot withdraw — funds currently lent out. '+fb(totalBorrowed)+' '+ep.sym+' is borrowed.');return}
+  earnPos[id].supplied-=a;wb[ep.sym]=(wb[ep.sym]||0)+a;
+  alert('✓ Withdrawn '+fb(a)+' '+ep.sym+'.\n\nSimulation only.');render();
 }
 
 function doCollSupply(id){
-  if(!me){connect();return}
-  const m=MKS.find(x=>x.id===id);const i=document.getElementById('in-s-'+id);
+  if(!me){connect();return}const m=MKS.find(x=>x.id===id);const i=document.getElementById('in-s-'+id);
   const a=parseFloat(i?.value);if(!a||a<=0){alert('Enter an amount.');return}
   if(a>(wb[m.coll.sym]||0)){alert('Insufficient '+m.coll.sym+' balance.');return}
-  if(!uPos[id])uPos[id]={supplied:0,borrowed:0};
-  uPos[id].supplied+=a;wb[m.coll.sym]-=a;
-  alert('✓ Simulated: Supplied '+fb(a)+' '+m.coll.sym+' as collateral.\n\nNo on-chain tx.');
-  render();
+  if(!uPos[id])uPos[id]={supplied:0,borrowed:0};uPos[id].supplied+=a;wb[m.coll.sym]-=a;
+  alert('✓ Supplied '+fb(a)+' '+m.coll.sym+' as collateral.\n\nSimulation only.');render();
 }
 
 function doBorrow(id){
-  if(!me){connect();return}
-  const m=MKS.find(x=>x.id===id);const i=document.getElementById('in-b-'+id);
+  if(!me){connect();return}const m=MKS.find(x=>x.id===id);const i=document.getElementById('in-b-'+id);
   const a=parseFloat(i?.value);if(!a||a<=0){alert('Enter an amount.');return}
-  const pos=uPos[id]||{supplied:0,borrowed:0};
-  const cP=P[m.coll.sym]||0,bP=P[m.borr]||0;
-  const maxBUsd=pos.supplied*cP*m.ltv/100;
-  const curBUsd=pos.borrowed*bP;
+  const pos=uPos[id]||{supplied:0,borrowed:0};const cP=P[m.coll.sym]||0,bP=P[m.borr]||0;
+  const maxBUsd=pos.supplied*cP*m.ltv/100;const curBUsd=pos.borrowed*bP;
   if(a*bP+curBUsd>maxBUsd){const mx=bP>0?(maxBUsd-curBUsd)/bP:0;alert('Exceeds LTV. Max: '+fb(Math.max(0,mx))+' '+m.borr);return}
   const avail=getAvailBorrow(m.borr);
   if(a>avail){alert('Insufficient liquidity. Available: '+fb(avail)+' '+m.borr);return}
-  if(!uPos[id])uPos[id]={supplied:0,borrowed:0};
-  uPos[id].borrowed+=a;
-  alert('✓ Simulated: Borrowed '+fb(a)+' '+m.borr+'.\n\nNo on-chain tx.');
-  render();
+  if(!uPos[id])uPos[id]={supplied:0,borrowed:0};uPos[id].borrowed+=a;
+  alert('✓ Borrowed '+fb(a)+' '+m.borr+'.\n\nSimulation only.');render();
+}
+
+function doRepay(id){
+  if(!me)return;const m=MKS.find(x=>x.id===id);const i=document.getElementById('in-r-'+id);
+  const a=parseFloat(i?.value);if(!a||a<=0){alert('Enter an amount.');return}
+  const pos=uPos[id]||{supplied:0,borrowed:0};
+  if(a>pos.borrowed){alert('Amount exceeds debt ('+fb(pos.borrowed)+' '+m.borr+').');return}
+  // Check user has the borrow asset
+  if(a>(wb[m.borr]||0)){alert('Insufficient '+m.borr+' balance to repay.');return}
+  uPos[id].borrowed-=a;wb[m.borr]-=a;
+  alert('✓ Repaid '+fb(a)+' '+m.borr+'.\n\nSimulation only.');render();
+}
+
+function doCollWithdraw(id){
+  if(!me)return;const m=MKS.find(x=>x.id===id);const i=document.getElementById('in-w-'+id);
+  const a=parseFloat(i?.value);if(!a||a<=0){alert('Enter an amount.');return}
+  const pos=uPos[id]||{supplied:0,borrowed:0};
+  if(a>pos.supplied){alert('Cannot withdraw more than supplied.');return}
+  // Check health factor after withdrawal
+  const cP=P[m.coll.sym]||0,bP=P[m.borr]||0;
+  const newSupUsd=(pos.supplied-a)*cP;const bUsd=pos.borrowed*bP;
+  if(bUsd>0){
+    const newHF=(newSupUsd*m.liq/100)/bUsd;
+    if(newHF<1.05){alert('Cannot withdraw — would put position at liquidation risk. Repay debt first.');return}
+  }
+  uPos[id].supplied-=a;wb[m.coll.sym]=(wb[m.coll.sym]||0)+a;
+  alert('✓ Withdrawn '+fb(a)+' '+m.coll.sym+'.\n\nSimulation only.');render();
 }
 
 // === INIT ===
