@@ -181,12 +181,12 @@ async function fetchPrices(){
     for(const[a,s]of Object.entries(mp)){if(bst[a]){P[s]=bst[a].p;if(bst[a].img)logos[s]=bst[a].img}}
   }catch(e){console.error(e)}
   if(!P.CRO)P.CRO=.08;if(!P.CDCBTC)P.CDCBTC=84000;if(!P.CDCETH)P.CDCETH=2100;if(!P.LCRO)P.LCRO=.095;if(!P.PACK)P.PACK=.00018;if(!P.USDC)P.USDC=1;
-  if(!logos.CRO)logos.CRO='https://dd.dexscreener.com/ds-data/tokens/cronos/0x5C7F8A570d578ED60E9120223e40eFbE85f2f0D7.png';
-  // Hardcoded fallbacks — cryptologos.cc for majors, DexScreener for Cronos-native
-  if(!logos.CDCBTC)logos.CDCBTC='https://cryptologos.cc/logos/bitcoin-btc-logo.png?v=040';
-  if(!logos.CDCETH)logos.CDCETH='https://cryptologos.cc/logos/ethereum-eth-logo.png?v=040';
-  if(!logos.USDC)logos.USDC='https://cryptologos.cc/logos/usd-coin-usdc-logo.png?v=040';
-  if(!logos.LCRO)logos.LCRO='https://dd.dexscreener.com/ds-data/tokens/cronos/0x9Fae23A2700FEeCd5b93e43fDBc03c76AA7C08A6.png';
+  // Guaranteed fallback logos — CoinGecko CDN (always works, no CORS issues)
+  if(!logos.CRO)logos.CRO='https://coin-images.coingecko.com/coins/images/7310/small/cro_token_logo.png';
+  if(!logos.CDCBTC)logos.CDCBTC='https://coin-images.coingecko.com/coins/images/1/small/bitcoin.png';
+  if(!logos.CDCETH)logos.CDCETH='https://coin-images.coingecko.com/coins/images/279/small/ethereum.png';
+  if(!logos.USDC)logos.USDC='https://coin-images.coingecko.com/coins/images/6319/small/usdc.png';
+  if(!logos.LCRO)logos.LCRO='https://coin-images.coingecko.com/coins/images/25197/small/LCRO.png';
   if(!logos.PACK)logos.PACK='https://dd.dexscreener.com/ds-data/tokens/cronos/0x0d0b4a6FC6e7f5635C2FF38dE75AF2e96D6D6804.png';
   if(!logos.CTR)logos.CTR='https://dd.dexscreener.com/ds-data/tokens/cronos/0xF3672F0cF2E45B28AC4a1D50FD8aC2eB555c21FC.png';
 }
